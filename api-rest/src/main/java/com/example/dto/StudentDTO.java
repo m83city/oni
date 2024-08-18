@@ -1,8 +1,11 @@
-package com.example.domain;
+package com.example.dto;
 
+import lombok.Builder;
 import lombok.Data;
 
-public class Student {
+@Data
+@Builder
+public class StudentDTO {
     private String name;
     private String second_name;
     private Integer age;

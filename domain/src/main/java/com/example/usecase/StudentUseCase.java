@@ -1,5 +1,5 @@
 package com.example.usecase;
 
-public interface StudenUseCase {
+public interface StudentUseCase {
     void execute ();
 }
