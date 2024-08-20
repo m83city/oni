@@ -14,7 +14,8 @@ public class StudentMapper {
                 .course(studentDTO.getCourse())
                 .build();
     }
-    public static StudentDTO asStudentDTO (Student student){
+
+    public static StudentDTO asStudentDTO(Student student) {
         return StudentDTO.builder()
                 .id(student.getId())
                 .name(student.getName())

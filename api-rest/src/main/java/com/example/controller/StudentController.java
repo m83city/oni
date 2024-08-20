@@ -28,8 +28,6 @@ public class StudentController {
 
     @PostMapping("/student")
     public Student create(@RequestBody StudentDTO studentDTO) {
-        //return studentCreateUseCase.create(asStudent(studentDTO));
-       // System.out.println(studentCreateUseCase.create(asStudent(studentDTO)).toString());
         return studentCreateUseCase.create(asStudent(studentDTO));
 
     }

@@ -9,18 +9,24 @@ import lombok.NoArgsConstructor;
 @Data
 @Builder
 @Entity
-@Table(name = "student")
+@Table(name = "STUDENT")
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class StudentEntity {
+
     @Id
     private Long id;
-    @Column(name = "name")
+
+    @Column(name = "NAME")
     private String name;
-    @Column(name = "second_name")
+
+    @Column(name = "SECOND_NAME")
     private String secondName;
-    @Column(name = "age")
+
+    @Column(name = "AGE")
     private Integer age;
-    @Column(name = "course")
+
+    @Column(name = "COURSE")
     private Integer course;
 }

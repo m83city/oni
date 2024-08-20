@@ -10,10 +10,10 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class StudentCreateUseCaseImpl implements StudentCreateUseCase {
     private final StudentRepository studentCreatePostgresUseCase;
+
     @Override
     public Student create(Student student) {
-        //studentCreatePostgresUseCase.create(student);
-        return  studentCreatePostgresUseCase.create(student);
+        return studentCreatePostgresUseCase.create(student);
     }
 
 }

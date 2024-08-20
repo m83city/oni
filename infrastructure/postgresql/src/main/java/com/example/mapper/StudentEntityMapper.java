@@ -4,7 +4,7 @@ import com.example.domain.Student;
 import com.example.entity.StudentEntity;
 
 public class StudentEntityMapper {
-    public static Student asStudent (StudentEntity studentEntity){
+    public static Student asStudent(StudentEntity studentEntity) {
         return Student.builder()
                 .id(studentEntity.getId())
                 .name(studentEntity.getName())
@@ -13,7 +13,8 @@ public class StudentEntityMapper {
                 .course(studentEntity.getCourse())
                 .build();
     }
-    public static StudentEntity asStudentEntity(Student student){
+
+    public static StudentEntity asStudentEntity(Student student) {
         return StudentEntity.builder()
                 .id(student.getId())
                 .name(student.getName())
