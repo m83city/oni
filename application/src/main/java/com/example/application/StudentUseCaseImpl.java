@@ -1,6 +1,6 @@
 package com.example.application;
 
-import com.example.usecase.StudentUseCase;
+import com.example.usecase.student.StudentUseCase;
 import org.springframework.stereotype.Service;
 
 @Service

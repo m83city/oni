@@ -1,4 +1,4 @@
-package com.example.usecase;
+package com.example.usecase.student;
 
 public interface StudentUseCase {
     void execute ();

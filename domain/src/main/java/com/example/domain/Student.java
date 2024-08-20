@@ -1,11 +1,14 @@
 package com.example.domain;
 
+import lombok.Builder;
 import lombok.Data;
 
+@Data
+@Builder
 public class Student {
-    private String name;
-    private String second_name;
-    private Integer age;
-    private Integer cource;
     private Long id;
+    private String name;
+    private String secondName;
+    private Integer age;
+    private Integer course;
 }

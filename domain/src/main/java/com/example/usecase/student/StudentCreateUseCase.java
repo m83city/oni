@@ -1,7 +1,7 @@
-package com.example.usecase;
+package com.example.usecase.student;
 
 import com.example.domain.Student;
 
 public interface StudentCreateUseCase {
-    public Student execute (Student student);
+     Student execute(Student student);
 }

@@ -18,16 +18,17 @@
     </properties>
 
     <dependencies>
+        <!-- MODULE -->
         <dependency>
             <groupId>com.example</groupId>
             <artifactId>domain</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <!-- DEPENDENCY -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
