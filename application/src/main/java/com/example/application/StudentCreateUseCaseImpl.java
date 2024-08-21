@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class StudentCreateUseCaseImpl implements StudentCreateUseCase {
+
     private final StudentRepository studentCreatePostgresUseCase;
 
     @Override

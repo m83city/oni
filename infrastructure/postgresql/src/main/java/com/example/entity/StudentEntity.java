@@ -16,6 +16,7 @@ import lombok.NoArgsConstructor;
 public class StudentEntity {
 
     @Id
+    @Column(name = "ID")
     private Long id;
 
     @Column(name = "NAME")

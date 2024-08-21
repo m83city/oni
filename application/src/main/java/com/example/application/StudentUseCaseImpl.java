@@ -7,5 +7,7 @@ import org.springframework.stereotype.Service;
 public class StudentUseCaseImpl implements StudentUseCase {
 
     @Override
-    public void execute() {}
+    public void execute() {
+        System.out.println("Get Student");
+    }
 }
