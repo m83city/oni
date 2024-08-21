@@ -23,7 +23,7 @@ public class StudentController {
 
 
     @GetMapping("/student")
-    public void get() {ґ
+    public void get() {
         studentUseCase.execute();
     }
 
