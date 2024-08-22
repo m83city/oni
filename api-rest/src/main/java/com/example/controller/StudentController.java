@@ -2,7 +2,7 @@ package com.example.controller;
 
 import com.example.domain.Student;
 import com.example.dto.StudentDTO;
-import com.example.mapper.v1.student.StudentMapperAPI;
+import com.example.mapper.StudentApiMapper;
 import com.example.usecase.student.StudentCreateUseCase;
 import com.example.usecase.student.StudentUseCase;
 import lombok.RequiredArgsConstructor;
@@ -19,10 +19,10 @@ public class StudentController {
 
     private final StudentCreateUseCase studentCreateUseCase;
 
-    private final StudentMapperAPI studentMapperStructAPI;
+    private final StudentApiMapper studentMapperStructAPI;
 
 
-    @GetMapping("/student")
+    @GetMapping("/v1/student")
     public void get() {
         studentUseCase.execute();
     }
