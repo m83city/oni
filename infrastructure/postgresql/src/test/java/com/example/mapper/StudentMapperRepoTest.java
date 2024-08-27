@@ -3,28 +3,36 @@ package com.example.mapper;
 import com.example.domain.Student;
 import com.example.entity.StudentEntity;
 import org.junit.jupiter.api.Test;
-import org.mapstruct.factory.Mappers;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.*;
 
+@ExtendWith(MockitoExtension.class)
 public class StudentMapperRepoTest {
 
-    private StudentMapperRepo studentMapperRepo = Mappers.getMapper(StudentMapperRepo.class);
+    @Mock
+    private StudentMapperRepo studentMapperRepo;
 
     @Test
-    void givenStudent_whenAsStudentEntity_thenStudentEntity (){
+    void givenStudent_whenAsStudentEntity_thenStudentEntity() {
 
         final StudentEntity studentEntity = givenStudentEntity();
-
         final Student student = givenStudent();
 
+        when(studentMapperRepo.asStudentEntity(student)).thenReturn(studentEntity);
+
         final StudentEntity actual = this.studentMapperRepo.asStudentEntity(student);
+
+        verify(this.studentMapperRepo).asStudentEntity(student);
 
         assertThat(actual).isEqualTo(studentEntity);
     }
 
     @Test
-    void givenStudentEntity_whenAsStudent_thenStudent (){
+    void givenStudentEntity_whenAsStudent_thenStudent() {
 
         final StudentEntity studentEntity = givenStudentEntity();
 
@@ -36,7 +44,7 @@ public class StudentMapperRepoTest {
     }
 
 
-    private Student givenStudent () {
+    private Student givenStudent() {
         return Student.builder()
                 .id(1L)
                 .age(3)
@@ -46,7 +54,7 @@ public class StudentMapperRepoTest {
                 .build();
     }
 
-    private StudentEntity givenStudentEntity () {
+    private StudentEntity givenStudentEntity() {
         return StudentEntity.builder()
                 .id(1L)
                 .age(3)
