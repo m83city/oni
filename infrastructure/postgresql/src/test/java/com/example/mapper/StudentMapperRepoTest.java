@@ -22,7 +22,7 @@ public class StudentMapperRepoTest {
         final StudentEntity studentEntity = givenStudentEntity();
         final Student student = givenStudent();
 
-        when(studentMapperRepo.asStudentEntity(student)).thenReturn(studentEntity);
+        when(this.studentMapperRepo.asStudentEntity(student)).thenReturn(studentEntity);
 
         final StudentEntity actual = this.studentMapperRepo.asStudentEntity(student);
 
@@ -35,10 +35,13 @@ public class StudentMapperRepoTest {
     void givenStudentEntity_whenAsStudent_thenStudent() {
 
         final StudentEntity studentEntity = givenStudentEntity();
-
         final Student student = givenStudent();
 
+        when(this.studentMapperRepo.asStudent(studentEntity)).thenReturn(student);
+
         final Student actual = this.studentMapperRepo.asStudent(studentEntity);
+
+        verify(this.studentMapperRepo).asStudent(studentEntity);
 
         assertThat(actual).isEqualTo(student);
     }
