@@ -4,45 +4,51 @@ import com.example.domain.Student;
 import com.example.entity.StudentEntity;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.TestConfiguration;
+import org.springframework.context.annotation.Bean;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.*;
 
-@ExtendWith(MockitoExtension.class)
-public class StudentMapperRepoTest {
+@ExtendWith(SpringExtension.class)
+public class StudentEntityMapperTest {
 
-    @Mock
-    private StudentMapperRepo studentMapperRepo;
+    @TestConfiguration
+    static class TestContextConfiguration {
+        @Bean
+        public StudentEntityMapper studentEntityMapper() {
+            return new StudentEntityMapperImpl();
+        }
+    }
+
+    @Autowired
+    StudentEntityMapper studentEntityMapper;
+
 
     @Test
     void givenStudent_whenAsStudentEntity_thenStudentEntity() {
-
+        //given
         final StudentEntity studentEntity = givenStudentEntity();
         final Student student = givenStudent();
 
-        when(this.studentMapperRepo.asStudentEntity(student)).thenReturn(studentEntity);
+        //when
+        final StudentEntity actual = this.studentEntityMapper.asStudentEntity(student);
 
-        final StudentEntity actual = this.studentMapperRepo.asStudentEntity(student);
-
-        verify(this.studentMapperRepo).asStudentEntity(student);
-
+        //then
         assertThat(actual).isEqualTo(studentEntity);
     }
 
     @Test
     void givenStudentEntity_whenAsStudent_thenStudent() {
-
+        //given
         final StudentEntity studentEntity = givenStudentEntity();
         final Student student = givenStudent();
 
-        when(this.studentMapperRepo.asStudent(studentEntity)).thenReturn(student);
+        //when
+        final Student actual = this.studentEntityMapper.asStudent(studentEntity);
 
-        final Student actual = this.studentMapperRepo.asStudent(studentEntity);
-
-        verify(this.studentMapperRepo).asStudent(studentEntity);
-
+        //then
         assertThat(actual).isEqualTo(student);
     }
 
