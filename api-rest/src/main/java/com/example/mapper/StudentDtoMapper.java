@@ -5,7 +5,7 @@ import com.example.dto.StudentDTO;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
-public interface StudentApiMapper {
+public interface StudentDtoMapper {
 
     StudentDTO astudentDTO(Student student);
 
