@@ -17,30 +17,30 @@ class StudentDtoMapperTest {
     @TestConfiguration
     static class TestContextConfiguration {
         @Bean
-        StudentDtoMapper studentDtoMapper () {
+        StudentDtoMapper studentDtoMapper() {
             return new StudentDtoMapperImpl();
         }
     }
+
     @Autowired
-    StudentDtoMapper studentDtoMapper;
+    private StudentDtoMapper studentDtoMapper;
 
 
     @Test
-    void givenStudent_whenAsStudentDTO_thenStudentDTO(){
+    void givenStudent_whenAsStudentDTO_thenStudentDTO() {
         //given
-       final Student student = this.givenStudent();
-       final StudentDTO studentDTO = this.givenStudentDTO();
+        final Student student = this.givenStudent();
+        final StudentDTO studentDTO = this.givenStudentDTO();
 
-
-       //when
-       final StudentDTO actual  = this.studentDtoMapper.astudentDTO(student);
+        //when
+        final StudentDTO actual = this.studentDtoMapper.astudentDTO(student);
 
         //then
-       assertThat(actual).isEqualTo(studentDTO);
+        assertThat(actual).isEqualTo(studentDTO);
     }
 
     @Test
-    void givenStudentDTO_whenAsStudent_thenStudent(){
+    void givenStudentDTO_whenAsStudent_thenStudent() {
         //given
         final Student student = this.givenStudent();
         final StudentDTO studentDTO = this.givenStudentDTO();
@@ -52,7 +52,7 @@ class StudentDtoMapperTest {
         assertThat(actual).isEqualTo(student);
     }
 
-    private Student givenStudent () {
+    private Student givenStudent() {
         return Student.builder()
                 .id(1L)
                 .age(3)
@@ -62,7 +62,7 @@ class StudentDtoMapperTest {
                 .build();
     }
 
-    private StudentDTO givenStudentDTO () {
+    private StudentDTO givenStudentDTO() {
         return StudentDTO.builder()
                 .id(1L)
                 .age(3)

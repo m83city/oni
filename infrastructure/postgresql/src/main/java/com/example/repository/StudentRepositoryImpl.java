@@ -16,11 +16,11 @@ public class StudentRepositoryImpl implements StudentRepository {
     private final StudentEntityMapper studentMapperRepo;
 
     @Override
-    public Student create(Student student) {
+    public Student create(final Student student) {
 
-        StudentEntity studentEntity = studentMapperRepo.asStudentEntity(student);
+        final StudentEntity studentEntity = studentMapperRepo.asStudentEntity(student);
 
-        Student studentResponse = studentMapperRepo.asStudent(studentJPARepository.save(studentEntity));
+        final Student studentResponse = studentMapperRepo.asStudent(studentJPARepository.save(studentEntity));
 
         return studentResponse;
     }

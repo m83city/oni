@@ -10,4 +10,5 @@ public interface StudentEntityMapper {
     StudentEntity asStudentEntity(Student student);
 
     Student asStudent(StudentEntity studentEntity);
+
 }

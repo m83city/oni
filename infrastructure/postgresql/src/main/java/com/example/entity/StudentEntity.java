@@ -17,7 +17,7 @@ public class StudentEntity {
 
     @Id
     @Column(name = "ID")
-    //@GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(name = "NAME")

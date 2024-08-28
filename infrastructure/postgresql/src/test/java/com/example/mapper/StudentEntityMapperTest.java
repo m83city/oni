@@ -23,7 +23,7 @@ public class StudentEntityMapperTest {
     }
 
     @Autowired
-    StudentEntityMapper studentEntityMapper;
+    private StudentEntityMapper studentEntityMapper;
 
 
     @Test

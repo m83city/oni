@@ -3,8 +3,7 @@ package com.example.controller;
 import com.example.domain.Student;
 import com.example.dto.StudentDTO;
 import com.example.mapper.StudentDtoMapper;
-import com.example.usecase.student.StudentCreateUseCase;
-import com.example.usecase.student.StudentUseCase;
+import com.example.usecase.student.CreateStudentUseCase;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,33 +17,31 @@ import static org.mockito.Mockito.*;
 
 @ExtendWith(SpringExtension.class)
 public class StudentControllerTest {
+
     @TestConfiguration
-    static class TestContextConfiguration{
+    static class TestContextConfiguration {
+
         @Bean
-        public StudentController studentController (final StudentDtoMapper studentDtoMapper,
-                                                    final StudentCreateUseCase studentCreateUseCase,
-                                                    final StudentUseCase studentUseCase){
-            return new StudentController(studentUseCase,studentCreateUseCase,studentDtoMapper);
+        public StudentController studentController(final StudentDtoMapper studentDtoMapper,
+                                                   final CreateStudentUseCase studentCreateUseCase) {
+            return new StudentController(studentCreateUseCase, studentDtoMapper);
         }
     }
 
     @Autowired
-    StudentController studentController;
+    private StudentController studentController;
 
     @MockBean
-    StudentDtoMapper studentDtoMapper;
+    private StudentDtoMapper studentDtoMapper;
 
     @MockBean
-    StudentUseCase studentUseCase;
-
-    @MockBean
-    StudentCreateUseCase studentCreateUseCase;
+    private CreateStudentUseCase studentCreateUseCase;
 
     @Test
-    void givenStaffDTO_whenCreate_thenReturnSuccess (){
+    void givenStaffDTO_whenCreate_thenReturnSuccess() {
         //given
         final Student student = mock(Student.class);
-        final StudentDTO studentDTO= mock(StudentDTO.class);
+        final StudentDTO studentDTO = mock(StudentDTO.class);
 
         when(this.studentDtoMapper.asStudent(studentDTO)).thenReturn(student);
         when(this.studentDtoMapper.astudentDTO(student)).thenReturn(studentDTO);
