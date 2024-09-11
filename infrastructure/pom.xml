@@ -13,6 +13,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>postgresql</module>
-        <module>kafka</module>
+        <module>kafka-infr</module>
     </modules>
 </project>

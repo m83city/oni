@@ -12,7 +12,7 @@ path:
   apiPrefix: /api
 
 kafka:
-  bootstrap_server: localhost:9092
+  bootstrap_server: localhost:9093
   group_id: my-group-id
   topics:
     producer:
